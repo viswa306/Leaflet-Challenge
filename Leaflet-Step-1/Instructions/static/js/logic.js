@@ -99,7 +99,8 @@ legend.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend'),
     magnitude= [2,3,4,5,6,7]
-        // labels = [];
+       
+    div.innerHTML += "<h4 style='margin:4px'>Magnitude</h4>" 
 
     // loop through our density intervals and generate a label with a colored square for each interval
     for (var i = 0; i < magnitude.length; i++) {

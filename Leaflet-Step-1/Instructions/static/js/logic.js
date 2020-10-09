@@ -6,15 +6,14 @@ d3.json(queryUrl, function (data) {
 });
 
 
-function getColor(mag) {
-  return mag > 8 ? '#800026' :
-          mag > 7 ? '#BD0026' :
-          mag > 6  ? '#E31A1C' :
-          mag > 5  ? '#FC4E2A' :
-          mag > 4   ? '#FD8D3C' :
-          mag > 3 ? '#FEB24C' :
-          mag > 2   ? '#FED976' :
-                            '#FFEDA0';
+function getColor(depth) {
+  return depth> 90 ? '#800026' :
+    depth > 70 ? '#BD0026' :
+    depth > 50  ? '#E31A1C' :
+    depth > 30  ? '#FC4E2A' :
+    depth> 10   ? '#FD8D3C' :
+    '#FEB24C' ;
+                            
 }
   
 // Create feature function
@@ -98,15 +97,15 @@ var legend = L.control({position: 'bottomright'});
 legend.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend'),
-    magnitude= [2,3,4,5,6,7]
+    depth= [-10,10,30,50,70,90]
        
-    div.innerHTML += "<h4 style='margin:4px'>Magnitude</h4>" 
+    div.innerHTML += "<h4 style='margin:4px'></h4>" 
 
     // loop through our density intervals and generate a label with a colored square for each interval
-    for (var i = 0; i < magnitude.length; i++) {
+    for (var i = 0; i < depth.length; i++) {
         div.innerHTML +=
-            '<i style="background:' + getColor(magnitude[i] + 1) + '"></i> ' +
-            magnitude[i] + (magnitude[i + 1] ? '&ndash;' + magnitude[i + 1] + '<br>' : '+');
+            '<i style="background:' + getColor(depth[i] + 1) + '"></i> ' +
+            depth[i] + (depth[i + 1] ? '&ndash;' + depth[i + 1] + '<br>' : '+');
     }
 
     return div;

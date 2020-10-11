@@ -1,7 +1,8 @@
 # Leaflet-Challenge
 
-# Prerequisites: 
+* Prerequisites: 
 * In mapbox.com create apikey .
+
 * Leaflet challenge assignment  Earthquakes data is used ,The data is in the form of geojson format.
 * Logic.js created functions and pointTolayer to create the markers as circles on the map.
 * used mapbox to create the tile layers on the basemap like street view,lightmap,grayscale,satellite.
